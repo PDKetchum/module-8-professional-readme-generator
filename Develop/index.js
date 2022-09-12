@@ -27,7 +27,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "contribution",
+    name: "contributing",
     message: "Enter your project contribution guidelines.",
   },
   {
@@ -54,63 +54,17 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-const writeToFile = ({
-  title,
-  badge,
-  description,
-  installation,
-  usage,
-  contribution,
-  testInstructions,
-  license,
-  github,
-  email,
-}) => `
-# ${title}
-
-${badge}
-
-## Description
-${description}
-
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [License](#license)
-- [Questions](#questions)
-
-## Installation
-${installation}
-
-## Usage
-${usage}
-
-## Contributing
-${contribution}
-
-## Tests
-${testInstructions}
-
-## License
-${license}
-
-## Questions
-
-GitHub profile: github.com/${github}
-
-If you have any additional questions, please reach out to me at ${email}.
-`;
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (err) =>
+    err ? console.log(err) : console.log("Successfully created README.md!")
+  );
+}
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    const readmeContent = writeToFile(answers);
-
-    fs.writeFile("README.md", readmeContent, (err) =>
-      err ? console.log(err) : console.log("Successfully created README.md!")
-    );
+    const readmeContent = generateMarkdown(answers);
+    writeToFile("README.md", readmeContent);
   });
 }
 
