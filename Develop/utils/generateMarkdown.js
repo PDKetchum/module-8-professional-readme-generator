@@ -84,8 +84,8 @@ ${data.usage}
 ## Contributing
 ${data.contributing}
 
-## Tests
-${data.testInstructions}
+## Test
+${data.test}
 
 ## License
 ${renderLicenseLink(data.license)}
