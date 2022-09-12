@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -38,16 +39,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "Select your project's license",
-    choices: [
-      "Apache 2.0 License",
-      "Boost Software License 1.0",
-      "BSD 3-Clause License",
-      "Eclipse Public License 1.0",
-      "GNU GPL v3",
-      "The Hippocratic License 2.1",
-      "IBM Public License Version 1.0",
-      "ISC License (ISC)",
-    ],
+    choices: ["None", "Apache 2.0 License", "ISC License (ISC)"],
   },
   {
     type: "input",
