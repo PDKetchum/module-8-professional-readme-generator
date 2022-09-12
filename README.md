@@ -13,7 +13,8 @@ The application takes in user input and inserts it into a template which then ge
 ## How to use:
 
 1. `npm install`
-2. `node index.js`
-3. Input project information
+2. `npm install --save inquirer@^8.0.0`
+3. `node index.js`
+4. Input project information
 
 GitHub URL: https://github.com/PDKetchum/module-9-professional-readme-generator
